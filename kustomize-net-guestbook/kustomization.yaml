@@ -1,0 +1,7 @@
+namePrefix: kustomize-
+
+resources:
+- net-guestbook-ui-deployment.yaml
+- net-guestbook-ui-svc.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
