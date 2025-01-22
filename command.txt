@@ -1,0 +1,19 @@
+argocd app patch-resource helm-guestbook \
+  --resource-name helm-guestbook \
+  --kind Deployment \
+  --namespace helm-guestbook \
+  --patch '{"spec": {"replicas": 3}}' \
+  --patch-type "application/merge-patch+json" \
+  --loglevel debug
+
+
+argocd app patch-resource kustomize-guestbook \
+  --resource-name kustomize-guestbook-ui \
+  --kind Deployment \
+  --namespace kustomize-guestbook \
+  --patch '{"spec": {"replicas": 6}}' \
+  --patch-type "application/merge-patch+json" \
+  --loglevel debug
+
+
+argocd app sync kustomize-guestbook
